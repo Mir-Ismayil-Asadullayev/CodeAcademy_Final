@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+@model Static
+<div class="container-fluid " style="border:1px solid darkgrey;">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+    <h2 class="mt-4">Make a change in Static section</h2>
+    <form method="post" class="mt-4">
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <img style="width:200px;margin:auto; display:block;" src="@Model.Logo" alt="blog img" /><br />
+            <label asp-for="@Model.Logo" class="form-label"><strong>Logo Image URL</strong></label>
+            <input asp-for="@Model.Logo" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Logo"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <img style="width:200px;margin:auto; display:block;" src="@Model.SpecialOffer1" alt="blog img" /><br />
+            <label asp-for="@Model.SpecialOffer1" class="form-label"><strong>Special Offer First Image URL</strong></label>
+            <input asp-for="@Model.SpecialOffer1" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.SpecialOffer1"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <img style="width:200px;margin:auto; display:block;" src="@Model.SpecialOffer2" alt="blog img" /><br />
+            <label asp-for="@Model.SpecialOffer2" class="form-label"><strong>Special Offer Second Image URL</strong></label>
+            <input asp-for="@Model.SpecialOffer2" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.SpecialOffer2"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <label asp-for="@Model.Article1" class="form-label"><strong>First Article</strong></label>
+            <input asp-for="@Model.Article1" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Article1"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <label asp-for="@Model.Article2" class="form-label"><strong>Second Article</strong></label>
+            <input asp-for="@Model.Article2" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Article2"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <img style="width:200px;margin:auto; display:block;" src="@Model.AnimeImage" alt="blog img" /><br />
+            <label asp-for="@Model.AnimeImage" class="form-label"><strong>Animation Image</strong></label>
+            <input asp-for="@Model.AnimeImage" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.AnimeImage"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <img style="width:200px;margin:auto; display:block;" src="@Model.BannerImage" alt="blog img" /><br />
+            <label asp-for="@Model.BannerImage" class="form-label"><strong>Banner Image</strong></label>
+            <input asp-for="@Model.BannerImage" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.BannerImage"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <label asp-for="@Model.TelNumber" class="form-label"><strong>Phone Number</strong></label>
+            <input asp-for="@Model.TelNumber" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.TelNumber"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <label asp-for="@Model.Email" class="form-label"><strong>Email Address</strong></label>
+            <input asp-for="@Model.Email" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Email"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <label asp-for="@Model.Location" class="form-label"><strong>Location</strong></label>
+            <input asp-for="@Model.Location" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Location"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <label asp-for="@Model.Facebook" class="form-label"><strong>Facebook URL</strong></label>
+            <input asp-for="@Model.Facebook" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Facebook"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <label asp-for="@Model.Instagram" class="form-label"><strong>Instagram URL</strong></label>
+            <input asp-for="@Model.Instagram" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Instagram"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <img style="width:200px;margin:auto; display:block;" src="@Model.ExOffer1" alt="blog img" /><br />
+            <label asp-for="@Model.ExOffer1" class="form-label"><strong>Exclusive Offer Image First</strong></label>
+            <input asp-for="@Model.ExOffer1" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.ExOffer1"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <img style="width:200px;margin:auto; display:block;" src="@Model.ExOffer2" alt="blog img" /><br />
+            <label asp-for="@Model.ExOffer2" class="form-label"><strong>Exclusive Offer Image Second</strong></label>
+            <input asp-for="@Model.ExOffer2" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.ExOffer2"></span>
+        </div>
+        <div class="mb-3" style="border-top: 1px solid black; padding: 16px 11px;">
+            <img style="width:200px;margin:auto; display:block;" src="@Model.ContactImage" alt="blog img" /><br />
+            <label asp-for="@Model.ContactImage" class="form-label"><strong>Contact Page Image URL</strong></label>
+            <input asp-for="@Model.ContactImage" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.ContactImage"></span>
+        </div>
+        <button type="submit" style="font-family: cursive;" class="btn mb-3 btn-warning">
+            Change
+        </button>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}
+
+

@@ -1,0 +1,81 @@
+﻿@model List<HomeSlider>
+@{
+    ViewData["Title"] = "Index";
+}
+@section Css{
+    <style>
+        table img {
+            object-fit: contain !important;
+            width: 200px !important;
+            height: 100px !important;
+            border-radius: unset !important;
+        }
+    </style>
+}
+<div class="container-fluid" style="padding:0; border:1px solid darkgrey;">    
+    <table style="border:1px solid black;" class="table table-bordered">
+        <thead style="border:1px solid darkgrey;">
+            <tr>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Id</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Home Slider Image</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Offer</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Head Title</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Subtitle</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Button</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Control Panel</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody  style="border:1px solid darkgrey;">
+            @foreach (HomeSlider slider in Model)
+            {
+            <tr>
+                <td>
+                    @slider.Id
+                </td>
+                <td>
+                    <img src="@slider.Image" alt="slider image" />
+                </td>
+                <td>
+                    @slider.Offer
+                </td>
+                <td>
+                    @slider.Headtitle
+                </td>
+                @if (slider.SubTitle.Length > 25)
+                {
+                    <td>
+                        @slider.SubTitle.Substring(0, 25)...
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @slider.SubTitle
+                    </td>
+                }
+                <td>
+                    @slider.Button
+                </td>
+                <td style="margin-top:32px;" class="d-flex ">
+                    <a asp-controller="homeslider" asp-action="edit" asp-route-id="@slider.Id" style=" margin-left: 22px;" class="btn btn-lg btn-warning">Change</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>    
+</div>
+

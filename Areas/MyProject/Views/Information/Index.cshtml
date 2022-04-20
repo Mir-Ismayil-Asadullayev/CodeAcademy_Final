@@ -1,0 +1,50 @@
+﻿@model List<Information>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid" style="padding:0; border:1px solid darkgrey;">
+    <table style="border:1px solid black;" class="table table-bordered">
+        <thead style="border:1px solid darkgrey;">
+            <tr>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Id</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Information Image</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Information Title</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Information Subtitle</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Control Panel</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody style="border:1px solid darkgrey;">
+            @foreach (Information aboutus in Model)
+            {
+                <tr>
+                    <td>
+                        <strong>@aboutus.Id</strong>
+                    </td>
+                    <td class="d-flex justify-content-center align-items-center">
+                        <img style="width:150px; height:120px; border-radius:unset;" src="@aboutus.Image" alt="info img">
+                    </td>
+                    <td>
+                        @aboutus.Title
+                    </td>
+                    <td>
+                        @aboutus.Subtitle
+                    </td>
+                    <td>
+                        <a asp-controller="information" asp-action="edit" asp-route-id="@aboutus.Id" style=" margin-left: 22px;" class="btn btn-lg btn-warning">Change</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

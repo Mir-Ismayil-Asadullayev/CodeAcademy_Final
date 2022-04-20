@@ -1,0 +1,119 @@
+﻿@model Static
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container-fluid" style="padding: 0; overflow-x: scroll; border: 1px solid darkgrey;">
+    <table style="border:1px solid black;" class="table table-bordered">
+        <thead style="border:1px solid darkgrey;">
+            <tr>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Id</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Logo</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Special Offer Image First</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Special Offer Image Second</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>First Article</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Second Artice</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Animation Image</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Banner Image</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Phone Number</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Email Address</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Location Name</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Facebook URL</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Instagram URL</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Exclusive Offer Image First</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Exclusive Offer Image Second</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Contact Page Image URL</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Control Panel</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody style="border:1px solid darkgrey;">
+
+            <tr>
+                <td>
+                    <strong>@Model.Id</strong>
+                </td>
+                <td>
+                    <img style="width: 100px; border-radius: unset; object-fit: contain;" srcset="@Model.Logo" alt="Logo" />
+                </td>
+                <td>
+                    <img style="width: 100px; border-radius: unset; object-fit: contain;" srcset="@Model.SpecialOffer1" alt="special offer img" />
+                </td>
+                <td>
+                    <img style="width: 100px; border-radius: unset; object-fit: contain;" srcset="@Model.SpecialOffer2" alt="special offer img" />
+                </td>
+                <td>
+                    @Model.Article1.Substring(0, 15)...
+                </td>
+                <td>
+                    @Model.Article2.Substring(0, 15)...
+                </td>
+                <td>
+                    <img style="width: 100px; border-radius: unset; object-fit: contain;" srcset="@Model.AnimeImage" alt="anime img" />
+                </td>
+                <td>
+                    <img style="width: 100px; border-radius: unset; object-fit:contain;" srcset="@Model.BannerImage" alt="banner img" />
+                </td>
+                <td>
+                    @Model.TelNumber.Substring(0, 15)...
+                </td>
+                <td>
+                    @Model.Email.Substring(0, 15)...
+                </td>
+                <td>
+                    @Model.Location
+                </td>
+                <td>
+                    @Model.Facebook.Substring(0, 15)...
+                </td>
+                <td>
+                    @Model.Instagram.Substring(0, 15)...
+                </td>
+                <td>
+                    <img style="width: 100px; border-radius: unset; object-fit: contain;" srcset="@Model.ExOffer1" alt="exoffer img" />
+                </td>
+                <td>
+                    <img style="width: 100px; border-radius: unset; object-fit: contain;" srcset="@Model.ExOffer2" alt="exoffer img" />
+                </td> 
+                <td>
+                    <img style="width: 100px; border-radius: unset; object-fit: contain;" srcset="@Model.ContactImage" alt="contact img" />
+                </td>
+                <td>
+                    <a asp-controller="static" asp-action="edit" style="margin-bottom: 20px;" class="btn btn-sm btn-warning">Change</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

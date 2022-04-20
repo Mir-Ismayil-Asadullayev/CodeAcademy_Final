@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+@model Blog
+<div class="container-fluid " style="border:1px solid darkgrey;">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+    <h2 class="mt-4">Make a change in Blog section</h2>
+    <form method="post" class="mt-4">
+        <div class="mb-3">
+            <label asp-for="@Model.Name" class="form-label">Blog Name</label>
+            <input asp-for="@Model.Name" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Name"></span>
+        </div>
+        <div class="mb-3">
+            <img style="width:200px; display:block;" src="@Model.Image" alt="blog img" /><br />
+            <label asp-for="@Model.Image" class="form-label">Blog Image URL</label>
+            <input asp-for="@Model.Image" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Image"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Author" class="form-label">Blog Author</label>
+            <input asp-for="@Model.Author" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Author"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Date" class="form-label">Blog Publishing Date</label>
+            <input asp-for="@Model.Date" style="border:1px solid darkgrey;" type="date" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Date"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.HeadTitle" class="form-label">Blog Head Title</label>
+            <input asp-for="@Model.HeadTitle" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.HeadTitle"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Quote" class="form-label">Blog Quote</label>
+            <input asp-for="@Model.Quote" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Quote"></span>
+        </div>
+        <button type="submit" style="font-family: cursive;" class="btn mb-3 btn-warning">
+            Change
+        </button>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}
+
+

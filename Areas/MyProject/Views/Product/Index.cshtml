@@ -1,0 +1,213 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container-fluid" style="padding:0; border:1px solid darkgrey;">
+    <a asp-controller="product" asp-action="create" style="
+ margin: 15px; font-family: cursive;" class="btn btn-lg btn-primary">Create</a>
+    <table style="border:1px solid black;" class="table table-bordered">
+        <thead style="border:1px solid darkgrey;">
+            <tr style="background-color:lightgray;">
+                <th style="border:1px solid darkgrey;">
+                    <strong>Id</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Images</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Name</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Price</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>In Stock</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Description</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Count</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Collections</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Campaign</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Vendor</strong>
+                </th>
+                <th style="border:1px solid darkgrey;">
+                    <strong>Control Panel</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody style="border:1px solid darkgrey;">
+            @foreach (Product product in Model)
+            {
+                <tr>
+                    <td style="background-color:lightgray;">
+                        <strong>@product.Id</strong>
+                    </td>
+                    @if (product.ProductImages.FirstOrDefault(f => f.IsMain == true).Image == null)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+                        @if (product.ProductImages.FirstOrDefault(f => f.IsMain == true).Image.Contains("https://"))
+                        {
+                            <td>
+                                <img style="width:110px; height:110px; border-radius:unset;" srcset="@product.ProductImages.FirstOrDefault(p=>p.IsMain == true).Image" alt="product image" />
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <img style="width:110px; height:110px; border-radius:unset;" src="~/admin/assets/images/@product.ProductImages.FirstOrDefault(p=>p.IsMain == true).Image" alt="product image" />
+                            </td>
+                        }
+                    }
+                    <td>
+                        @product.Name
+                    </td>
+                    <td>
+                        $@product.Price
+                    </td>
+                    @if (@product.InStock)
+                    {
+
+                        <td>
+                            Depoda Var
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            Depoda Yoxdu
+                        </td>
+                    }
+                    @if (product.Description.Length > 15)
+                    {
+                        <td style="width: 120px;">
+                            @product.Description.Substring(0, 15)...
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @product.Description
+                        </td>
+                    }
+
+                    <td>
+                        @product.ItemCount
+                    </td>
+                    <td style="width: 170px;">
+                        @foreach (CollectionProduct item in product.CollectionProducts)
+                        {
+
+                            @(item.Collection.Name+ ", ")<br />
+
+                        }
+                    </td>
+                    @if (product.Campaign == null)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+                        <td>@product.Campaign.DiscountPercent %</td>
+                    }
+                    <td>
+                        @product.Vendor.Name
+                    </td>
+                    <td style="margin-top: 32px; width: 160px;">
+                        <a asp-controller="product" asp-action="edit" asp-route-id="@product.Id" style=" margin: 8px 14px;" class="btn btn-warning">Change</a>
+                        <a asp-controller="product" asp-action="delete" asp-route-id="@product.Id" style="margin: 8px 14px;" class="btn delete-item btn-danger">Remove</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table><br />
+    <ul class="pagination pagination-lg" style="justify-content: center;  color: white;">
+        @if (ViewBag.CurrentPage == 1)
+        {
+            <li class="page-item">
+                <a asp-controller="product" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)" class="page-link" style="pointer-events: none; background-color: #4d83ff; color: white;" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a asp-controller="product" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)" class="page-link" style="background-color: #4d83ff; color: white;" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        }
+        @for (int i = 1; i <= ViewBag.TotalPage; i++)
+        {
+
+
+            <a style=" @(ViewBag.CurrentPage== i?"background-color:white; color:#4d83ff;pointer-events:none":"background-color:#4d83ff; color:white")" asp-controller="product" asp-action="index" asp-route-page="@i" class="page-link">
+            <li class="page-item @(ViewBag.CurrentPage== i?"active":"")">@i</li></a>
+
+        }
+        @if (ViewBag.CurrentPage == ViewBag.TotalPage)
+        {
+            <li class="page-item">
+                <a asp-controller="product" asp-action="index" asp-route-page="@(ViewBag.CurrentPage+1)" class="page-link" style="pointer-events: none; background-color: #4d83ff; color: white;" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a asp-controller="product" asp-action="index" asp-route-page="@(ViewBag.CurrentPage+1)" class="page-link" style="background-color: #4d83ff; color: white;" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>
+@section Scripts{
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(".delete-item").click(function (e) {
+            e.preventDefault()
+            console.log($(this).attr("href"))
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    var link = $(this).attr("href");
+                    fetch(link).then(response => response.json()).then(data => {
+                        if (data.status == 200) {
+                            location.reload(true)
+                        } else {
+                            Swal.fire(
+                                'Not found!',
+                                'Your file can not be deleted.',
+                                'Failed'
+                            )
+                        }
+                    }
+
+                    );
+                }
+            })
+        })
+    </script>
+}
+

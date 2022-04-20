@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Edit";
+}
+@model HomeSlider
+<div class="container-fluid " style="border:1px solid darkgrey;">
+    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+    <h2 class="mt-4">Make a change in Slider section</h2>
+    <form method="post" class="mt-4">
+        <div class="mb-3">
+            <img style="width:200px; display:block;" src="@Model.Image" alt="slider img" /><br />
+            <label asp-for="@Model.Image" class="form-label">Slider Image URL</label>
+            <input asp-for="@Model.Image" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Image"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Offer" class="form-label">Offer Text</label>
+            <input asp-for="@Model.Offer" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Offer"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Headtitle" class="form-label">Head Title Text</label>
+            <input asp-for="@Model.Headtitle" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Headtitle"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.SubTitle" class="form-label">SubTitle Text</label>
+            <input asp-for="@Model.SubTitle" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.SubTitle"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.Button" class="form-label">Button Text</label>
+            <input asp-for="@Model.Button" style="border:1px solid darkgrey;" type="text" class="form-control">
+            <span class="text-danger text" asp-validation-for="@Model.Button"></span>
+        </div>
+        <button type="submit" style="font-family: cursive;" class="btn mb-3 btn-warning">
+            Change
+        </button>
+    </form>
+</div>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+}
+
+
